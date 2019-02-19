@@ -5,8 +5,11 @@ const ProductSchema = new Schema({
     name: {
         type: String
     },
-    description: {
+    details: {
         type: String
+    },
+    shortDescription: {
+       type: String
     },
     price: {
         type: Number
@@ -19,6 +22,10 @@ const ProductSchema = new Schema({
         required: true,
         ref: "User"
      },
+    postedOn: {
+        type: Date,
+        default: Date.now
+    },
     availability: {
         type: Date,
         default: Date.now

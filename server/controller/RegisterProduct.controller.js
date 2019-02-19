@@ -4,10 +4,10 @@ const Util = require("../utils");
 
 const RegisterProduct = function (req, res, next) {
     console.log(req.body);
-    const data = _.pick(req.body, ['name', 'description', 'price']);
+    const data = _.pick(req.body, ['name', 'details','shortDescription', 'price']);
     const userId = Util.getUserId(req);
 
-    if(data.name && data.description && data.price) {
+    if(data.name && data.details && data.price) {
         Product.create({...data, postedBy: userId, productImagePath: req.file.path})
             .then(response => {
                 res.send({message: 'Product registered successfully!'})
